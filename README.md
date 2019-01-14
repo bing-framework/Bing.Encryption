@@ -2,7 +2,7 @@
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://mit-license.org/)
 
 Bing.Encryption是Bing应用框架的加密操作类库。
-Bing是一个.net core平台下的应用框架，旨在于提升小型团队的开发能力，由常用公共操作类、架构基类、第三方组件封装、第三方业务接口封装等组成。
+对各种常用的加密算法进行封装，Base64、对称密码（DES、3DES、AES）、非对称密码（RSA）等实现。
 
 ## Nuget
 |Nuget|版本号|说明|
@@ -10,6 +10,31 @@ Bing是一个.net core平台下的应用框架，旨在于提升小型团队的�
 |Bing.Encryption|[![NuGet Badge](https://buildstats.info/nuget/Bing.Encryption?includePreReleases=true)](https://www.nuget.org/packages/Bing.Encryption)|
 
 ## 功能
+### 对称加密算法
+#### RSA
+
+### 非对称加密算法
+#### AES
+#### DES
+#### TripleDES
+
+### Hash
+#### MD5
+
+#### HMAC
+##### HMAC-MD5
+##### HMAC-SHA1
+##### HMAC-SHA256
+##### HMAC-SHA384
+##### HMAC-SHA512
+
+#### SHA
+##### SHA1
+##### SHA256
+##### SHA384
+##### SHA512
+
+### Base64
 
 ## 依赖类库
 
