@@ -132,16 +132,11 @@ namespace Bing.Encryption
                 encoding = Encoding.UTF8;
             }
 
-            var result = DecryptCore<AesCryptoServiceProvider>(value.GetEncryptBytes(outType),
+            var result = DecryptCore<TripleDESCryptoServiceProvider>(value.GetEncryptBytes(outType),
                 ComputeRealValueFunc()(key)(salt)(encoding)((int)keySize),
-                ComputeRealValueFunc()(iv)(salt)(encoding)(64));
+                ComputeRealValueFunc()(iv)(salt)(encoding)(64));            
 
-            if (outType == OutType.Base64)
-            {
-                return Convert.ToBase64String(result);
-            }
-
-            return result.ToHexString();
+            return encoding.GetString(result);
         }
 
         /// <summary>

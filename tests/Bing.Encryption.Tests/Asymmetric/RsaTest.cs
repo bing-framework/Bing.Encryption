@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Bing.Encryption.Core;
+﻿using Bing.Encryption.Core;
 using Xunit;
 using Xunit.Abstractions;
 
 namespace Bing.Encryption.Tests.Asymmetric
 {
-    public class RSAEncryptionProviderTest:TestBase
+    public class RsaTest:TestBase
     {
-        public RSAEncryptionProviderTest(ITestOutputHelper output) : base(output)
+        public RsaTest(ITestOutputHelper output) : base(output)
         {
         }
 

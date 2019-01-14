@@ -11,12 +11,14 @@ namespace Bing.Encryption
     /// <summary>
     /// DES 加密提供程序
     /// </summary>
-    public sealed class DESEncryptionProvider:SymmetricEncryptionBase
+    public sealed class DESEncryptionProvider : SymmetricEncryptionBase
     {
         /// <summary>
         /// 初始化一个<see cref="DESEncryptionProvider"/>类型的实例
         /// </summary>
-        private DESEncryptionProvider() { }
+        private DESEncryptionProvider()
+        {
+        }
 
         /// <summary>
         /// 创建 DES 密钥
@@ -41,7 +43,7 @@ namespace Bing.Encryption
         /// <param name="outType">输出类型，默认为<see cref="OutType.Base64"/></param>
         /// <param name="encoding">编码类型，默认为<see cref="Encoding.UTF8"/></param>
         /// <returns></returns>
-        public static string Encrypt(string value, string key, string iv = null, string salt = null,
+        public static string Encrypt(string value, string key, string iv, string salt = null,
             OutType outType = OutType.Base64,
             Encoding encoding = null)
         {
@@ -55,12 +57,17 @@ namespace Bing.Encryption
                 throw new ArgumentNullException(nameof(key));
             }
 
+            if (string.IsNullOrEmpty(iv))
+            {
+                throw new ArgumentNullException(nameof(iv));
+            }
+
             if (encoding == null)
             {
                 encoding = Encoding.UTF8;
             }
 
-            var result = EncryptCore<AesCryptoServiceProvider>(encoding.GetBytes(value),
+            var result = EncryptCore<DESCryptoServiceProvider>(encoding.GetBytes(value),
                 ComputeRealValueFunc()(key)(salt)(encoding)(64),
                 ComputeRealValueFunc()(iv)(salt)(encoding)(64));
 
@@ -124,12 +131,7 @@ namespace Bing.Encryption
                 ComputeRealValueFunc()(key)(salt)(encoding)(64),
                 ComputeRealValueFunc()(iv)(salt)(encoding)(64));
 
-            if (outType == OutType.Base64)
-            {
-                return Convert.ToBase64String(result);
-            }
-
-            return result.ToHexString();
+            return encoding.GetString(result);
         }
 
         /// <summary>

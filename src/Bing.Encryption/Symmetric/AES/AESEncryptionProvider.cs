@@ -27,7 +27,7 @@ namespace Bing.Encryption
         {
             if (encoding == null)
             {
-                encoding=Encoding.UTF8;
+                encoding = Encoding.UTF8;
             }
 
             using (var provider=new AesCryptoServiceProvider(){KeySize = (int)size})
@@ -68,7 +68,7 @@ namespace Bing.Encryption
 
             if (encoding == null)
             {
-                encoding=Encoding.UTF8;
+                encoding = Encoding.UTF8;
             }
 
             var result = EncryptCore<AesCryptoServiceProvider>(encoding.GetBytes(value),
@@ -133,15 +133,10 @@ namespace Bing.Encryption
             }
 
             var result = DecryptCore<AesCryptoServiceProvider>(value.GetEncryptBytes(outType),
-                ComputeRealValueFunc()(key)(salt)(encoding)((int)keySize),
+                ComputeRealValueFunc()(key)(salt)(encoding)((int) keySize),
                 ComputeRealValueFunc()(iv)(salt)(encoding)(128));
 
-            if (outType == OutType.Base64)
-            {
-                return Convert.ToBase64String(result);
-            }
-
-            return result.ToHexString();
+            return encoding.GetString(result);
         }
 
         /// <summary>
