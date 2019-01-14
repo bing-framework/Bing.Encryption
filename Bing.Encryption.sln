@@ -3,9 +3,40 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00-document", "00-document", "{8488CD5D-F624-4236-8356-6FBF87D3F787}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01-src", "01-src", "{8354214D-5DEC-4FCE-A6EC-DDD4D9F5087C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02-tests", "02-tests", "{826F2D53-2E3F-4367-8B9C-378DA0F9DD20}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bing.Encryption", "src\Bing.Encryption\Bing.Encryption.csproj", "{DC7882FF-1F21-444F-935F-6F37861CD33F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bing.Encryption.Tests", "tests\Bing.Encryption.Tests\Bing.Encryption.Tests.csproj", "{E410B200-A2A1-4C97-8AF2-3BB2D99BBDFF}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DC7882FF-1F21-444F-935F-6F37861CD33F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC7882FF-1F21-444F-935F-6F37861CD33F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC7882FF-1F21-444F-935F-6F37861CD33F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC7882FF-1F21-444F-935F-6F37861CD33F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E410B200-A2A1-4C97-8AF2-3BB2D99BBDFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E410B200-A2A1-4C97-8AF2-3BB2D99BBDFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E410B200-A2A1-4C97-8AF2-3BB2D99BBDFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E410B200-A2A1-4C97-8AF2-3BB2D99BBDFF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DC7882FF-1F21-444F-935F-6F37861CD33F} = {8354214D-5DEC-4FCE-A6EC-DDD4D9F5087C}
+		{E410B200-A2A1-4C97-8AF2-3BB2D99BBDFF} = {826F2D53-2E3F-4367-8B9C-378DA0F9DD20}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {33FAC9DB-62D8-4517-9F70-4C9D5CEE80C0}
