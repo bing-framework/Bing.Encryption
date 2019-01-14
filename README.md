@@ -2,6 +2,7 @@
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://mit-license.org/)
 
 Bing.Encryption是Bing应用框架的加密操作类库。
+
 对各种常用的加密算法进行封装，Base64、对称密码（DES、3DES、AES）、非对称密码（RSA）等实现。
 
 ## Nuget
