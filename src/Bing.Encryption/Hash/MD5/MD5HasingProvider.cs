@@ -29,7 +29,7 @@ namespace Bing.Encryption
 
             if (encoding == null)
             {
-                encoding=Encoding.UTF8;
+                encoding = Encoding.UTF8;
             }
 
             switch (bitType)

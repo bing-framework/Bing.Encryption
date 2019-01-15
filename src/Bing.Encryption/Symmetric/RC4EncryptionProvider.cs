@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Text;
 using Bing.Encryption.Abstractions;
-using Bing.Encryption.Core.Internals.Extensions;
 
 // ReSharper disable once CheckNamespace
 namespace Bing.Encryption

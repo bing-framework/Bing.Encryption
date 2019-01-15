@@ -1,4 +1,5 @@
-﻿namespace Bing.Encryption.Hash
+﻿// ReSharper disable once CheckNamespace
+namespace Bing.Encryption.Hash
 {
     /// <summary>
     /// MD5字节类型
