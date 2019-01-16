@@ -23,7 +23,7 @@ namespace Bing.Encryption
         /// <returns></returns>
         public static RSAKey CreateKey(RSAKeySizeType size = RSAKeySizeType.L2048, RSAKeyType keyType = RSAKeyType.Xml)
         {
-            using (var rsa=new RSACryptoServiceProvider((int)size))
+            using (var rsa = new RSACryptoServiceProvider((int) size))
             {
                 var publicKey = keyType == RSAKeyType.Json ? rsa.ToJsonString(false) : rsa.ToExtXmlString(false);
 
@@ -98,7 +98,7 @@ namespace Bing.Encryption
                 throw new FileNotFoundException(nameof(certFile));
             }
 
-            var cert=new X509Certificate2(certFile);
+            var cert = new X509Certificate2(certFile);
             return cert.PublicKey.Key.ToXmlString(false);
         }
 
@@ -116,7 +116,7 @@ namespace Bing.Encryption
         {
             if (encoding == null)
             {
-                encoding=Encoding.UTF8;
+                encoding = Encoding.UTF8;
             }
 
             var result = Encrypt(encoding.GetBytes(value), publicKey, keyType);
@@ -138,7 +138,7 @@ namespace Bing.Encryption
         /// <returns></returns>
         public static byte[] Encrypt(byte[] sourceBytes, string publicKey, RSAKeyType keyType = RSAKeyType.Xml)
         {
-            using (var rsa= RSA.Create())
+            using (var rsa = RSA.Create())
             {
                 if (keyType == RSAKeyType.Xml)
                 {
@@ -173,7 +173,8 @@ namespace Bing.Encryption
             {
                 encoding = Encoding.UTF8;
             }
-            var result= Decrypt(value.GetEncryptBytes(outType), privateKey, keyType);
+
+            var result = Decrypt(value.GetEncryptBytes(outType), privateKey, keyType);
             return encoding.GetString(result);
         }
 
@@ -184,9 +185,9 @@ namespace Bing.Encryption
         /// <param name="privateKey">私钥</param>
         /// <param name="keyType">密钥类型</param>
         /// <returns></returns>
-        public static byte[] Decrypt(byte[] sourceBytes, string privateKey,RSAKeyType keyType = RSAKeyType.Xml)
-        {            
-            using (var rsa= RSA.Create())
+        public static byte[] Decrypt(byte[] sourceBytes, string privateKey, RSAKeyType keyType = RSAKeyType.Xml)
+        {
+            using (var rsa = RSA.Create())
             {
                 if (keyType == RSAKeyType.Xml)
                 {
@@ -241,9 +242,10 @@ namespace Bing.Encryption
         /// <param name="rsaType">算法类型</param>
         /// <param name="keyType">密钥类型</param>
         /// <returns></returns>
-        public static byte[] SignData(byte[] source, string privateKey,RSAType rsaType=RSAType.RSA, RSAKeyType keyType = RSAKeyType.Xml)
+        public static byte[] SignData(byte[] source, string privateKey, RSAType rsaType = RSAType.RSA,
+            RSAKeyType keyType = RSAKeyType.Xml)
         {
-            using (var rsa= RSA.Create())
+            using (var rsa = RSA.Create())
             {
                 if (keyType == RSAKeyType.Xml)
                 {
@@ -279,12 +281,13 @@ namespace Bing.Encryption
         {
             if (encoding == null)
             {
-                encoding=Encoding.UTF8;
+                encoding = Encoding.UTF8;
             }
+
             byte[] sourceBytes = encoding.GetBytes(source);
             byte[] signBytes = signData.GetEncryptBytes(outType);
 
-            return VerifyData(sourceBytes, signBytes, publicKey,rsaType, keyType);
+            return VerifyData(sourceBytes, signBytes, publicKey, rsaType, keyType);
         }
 
         /// <summary>
@@ -296,9 +299,10 @@ namespace Bing.Encryption
         /// <param name="rsaType">算法类型</param>
         /// <param name="keyType">密钥类型</param>
         /// <returns></returns>
-        public static bool VerifyData(byte[] source, byte[] signData, string publicKey, RSAType rsaType = RSAType.RSA, RSAKeyType keyType = RSAKeyType.Xml)
+        public static bool VerifyData(byte[] source, byte[] signData, string publicKey, RSAType rsaType = RSAType.RSA,
+            RSAKeyType keyType = RSAKeyType.Xml)
         {
-            using (var rsa=RSA.Create())
+            using (var rsa = RSA.Create())
             {
                 if (keyType == RSAKeyType.Xml)
                 {

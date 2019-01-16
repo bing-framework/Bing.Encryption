@@ -7,9 +7,21 @@ namespace Bing.Encryption
     // ReSharper disable once InconsistentNaming
     public enum RSAKeySizeType
     {
-        L1024=1024,
-        L2048=2048,
-        L3072=3072,
-        L4096=4096
+        /// <summary>
+        /// 1024
+        /// </summary>
+        L1024 = 1024,
+        /// <summary>
+        /// 2048
+        /// </summary>
+        L2048 = 2048,
+        /// <summary>
+        /// 3072
+        /// </summary>
+        L3072 = 3072,
+        /// <summary>
+        /// 4096
+        /// </summary>
+        L4096 = 4096
     }
 }
