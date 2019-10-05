@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Bing.Encryption.ErrorDetecting
+namespace Bing.Encryption.Check
 {
     class CRC16CheckingProvider
     {

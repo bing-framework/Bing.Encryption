@@ -22,7 +22,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Bing\Encryption\Check\" />
+    <Folder Include="Bing\Encryption\Algorithms\" />
+    <Folder Include="Bing\Encryption\Check\CRC\" />
+    <Folder Include="Bing\Encryption\ErrorDetecting\" />
     <Folder Include="Bing\Extensions\" />
   </ItemGroup>
 
