@@ -4,7 +4,7 @@ using Bing.Encryption.Abstractions;
 namespace Bing.Encryption.Core
 {
     /// <summary>
-    /// CRC 检查基类
+    /// CRC 校验基类
     /// </summary>
     /// <typeparam name="T1">数据类型</typeparam>
     /// <typeparam name="T2">数据类型</typeparam>
@@ -48,7 +48,6 @@ namespace Bing.Encryption.Core
         /// <param name="stream">流</param>
         /// <param name="position">流位置</param>
         /// <param name="count">数量</param>
-        /// <returns></returns>
         protected static T1 Compute<TCRC>(Stream stream, long position = -1, int count = -1)
             where TCRC : class, ICRC<TCRC, T1, T2>, new()
         {
