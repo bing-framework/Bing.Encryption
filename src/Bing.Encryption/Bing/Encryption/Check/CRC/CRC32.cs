@@ -1,32 +1,35 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using Bing.Encryption.Abstractions;
+using Bing.Encryption.Check.CRC;
 using Bing.Encryption.Core.Internals;
 
 // ReSharper disable once CheckNamespace
 namespace Bing.Encryption
 {
     /// <summary>
-    /// CRC16
+    /// CRC32
     /// </summary>
-    public sealed class CRC16 : ICRC<CRC16, ushort, short>
+    public sealed class CRC32 : ICRC<CRC32, uint, int>
     {
         /// <summary>
         /// 校验值
         /// </summary>
-        public ushort Value { get; set; } = CRC16CheckingProvider.Seed;
+        public uint Value { get; set; } = CRC32CheckingProvider.Seed;
 
         /// <summary>
         /// CRC数据表
         /// </summary>
-        private ushort[] CRCTable { get; } = CRCTableGenerator.GenerationCRC16Table();
+        private uint[] CRCTable { get; } = CRCTableGenerator.GenerationCRC32Table();
 
         /// <summary>
         /// 重置
         /// </summary>
-        public CRC16 Reset()
+        public CRC32 Reset()
         {
-            Value = CRC16CheckingProvider.Seed;
+            Value = CRC32CheckingProvider.Seed;
             return this;
         }
 
@@ -34,9 +37,9 @@ namespace Bing.Encryption
         /// 更新并校验
         /// </summary>
         /// <param name="value">值</param>
-        public CRC16 Update(short value)
+        public CRC32 Update(int value)
         {
-            Value = (ushort)((Value << 8) ^ CRCTable[(Value >> 8) ^ value]);
+            Value = CRCTable[(Value ^ value) & 0xFF] ^ (Value >> 8);
             return this;
         }
 
@@ -47,16 +50,15 @@ namespace Bing.Encryption
         /// <param name="offset">偏移量</param>
         /// <param name="count">字节数</param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public CRC16 Update(byte[] buffer, int offset = 0, int count = 1)
+        public CRC32 Update(byte[] buffer, int offset = 0, int count = 1)
         {
             Checker.Buffer(buffer);
             if (count <= 0)
                 count = buffer.Length;
             if (offset < 0 || offset + count > buffer.Length)
                 throw new ArgumentOutOfRangeException(nameof(offset));
-            Value ^= Value;
-            for (var i = 0; i < count; i++)
-                Value = (ushort)((Value << 8) ^ CRCTable[(Value >> 8) ^ buffer[offset + i] & 0xFF]);
+            while (--count >= 0)
+                Value = CRCTable[(Value ^ buffer[offset++]) & 0xFF] ^ (Value >> 8);
             return this;
         }
 
@@ -65,7 +67,7 @@ namespace Bing.Encryption
         /// </summary>
         /// <param name="stream">流</param>
         /// <param name="count">数量</param>
-        public CRC16 Update(Stream stream, long count = -1)
+        public CRC32 Update(Stream stream, long count = -1)
         {
             Checker.Stream(stream);
             if (count <= 0)
@@ -75,14 +77,7 @@ namespace Bing.Encryption
                 var b = stream.ReadByte();
                 if (b == -1)
                     break;
-                Value ^= (byte)b;
-                for (var i = 0; i < 8; i++)
-                {
-                    if ((Value & 0x0001) != 0)
-                        Value = (ushort)((Value >> 1) ^ 0xa001);
-                    else
-                        Value = (ushort)(Value >> 1);
-                }
+                Value = CRCTable[(Value ^ b) & 0xFF] ^ (Value >> 8);
             }
             return this;
         }
