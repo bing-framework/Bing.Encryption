@@ -12,9 +12,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01-src", "01-src", "{835421
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02-tests", "02-tests", "{826F2D53-2E3F-4367-8B9C-378DA0F9DD20}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bing.Encryption", "src\Bing.Encryption\Bing.Encryption.csproj", "{DC7882FF-1F21-444F-935F-6F37861CD33F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bing.Encryption", "src\Bing.Encryption\Bing.Encryption.csproj", "{DC7882FF-1F21-444F-935F-6F37861CD33F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bing.Encryption.Tests", "tests\Bing.Encryption.Tests\Bing.Encryption.Tests.csproj", "{E410B200-A2A1-4C97-8AF2-3BB2D99BBDFF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bing.Encryption.Tests", "tests\Bing.Encryption.Tests\Bing.Encryption.Tests.csproj", "{E410B200-A2A1-4C97-8AF2-3BB2D99BBDFF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

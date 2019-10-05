@@ -8,7 +8,7 @@ namespace Bing.Encryption
     /// <summary>
     /// SHA1 哈希加密提供程序
     /// </summary>
-    public sealed class SHA1HashingProvider:SHAHashingBase
+    public sealed class SHA1HashingProvider : SHAHashingBase
     {
         /// <summary>
         /// 初始化一个<see cref="SHA1HashingProvider"/>类型的实例

@@ -10,7 +10,7 @@ namespace Bing.Encryption
     /// RC4 加密提供程序
     /// 参考：https://bitlush.com/blog/rc4-encryption-in-c-sharp
     /// </summary>
-    public class RC4EncryptionProvider : ISymmetricEncyption
+    public class RC4EncryptionProvider : ISymmetricEncryption
     {
         /// <summary>
         /// 初始化一个<see cref="RC4EncryptionProvider"/>类型的实例

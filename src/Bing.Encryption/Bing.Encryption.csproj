@@ -4,6 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <Description>Bing.Encryption是Bing应用框架的加密操作类库。
 对各种常用的加密算法进行封装，Base64、对称密码（DES、3DES、AES）、非对称密码（RSA）等实现。</Description>
+    <RootNamespace />
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -18,6 +19,11 @@
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Bing\Encryption\Check\" />
+    <Folder Include="Bing\Extensions\" />
   </ItemGroup>
 
 </Project>
