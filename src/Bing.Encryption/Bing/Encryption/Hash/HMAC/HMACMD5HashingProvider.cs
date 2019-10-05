@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Security.Cryptography;
 using System.Text;
 using Bing.Encryption.Core;
 
@@ -19,21 +18,21 @@ namespace Bing.Encryption
         /// <summary>
         /// 获取字符串的 HMAC_MD5 哈希值，默认编码为<see cref="Encoding.UTF8"/>
         /// </summary>
-        /// <param name="value">待加密的值</param>
+        /// <param name="data">待加密的数据</param>
         /// <param name="key">密钥</param>
         /// <param name="encoding">编码类型，默认为<see cref="Encoding.UTF8"/></param>
-        public static HashResult Signature(string value, string key,
-            Encoding encoding = null) => Encrypt<HMACMD5>(value, key, encoding);
+        public static HashResult Signature(string data, string key, Encoding encoding = null) =>
+            Encrypt<System.Security.Cryptography.HMACMD5>(data, key, encoding);
 
         /// <summary>
         /// 验证签名
         /// </summary>
         /// <param name="comparison">对比的值</param>
-        /// <param name="value">待加密的值</param>
+        /// <param name="data">待加密的数据</param>
         /// <param name="key">密钥</param>
         /// <param name="func">比较函数</param>
         /// <param name="encoding">编码类型，默认为<see cref="Encoding.UTF8"/></param>
-        public static bool Verify(string comparison, string value, string key, Func<HashResult, string> func,
-            Encoding encoding = null) => comparison == func(Signature(value, key, encoding));
+        public static bool Verify(string comparison, string data, string key, Func<HashResult, string> func,
+            Encoding encoding = null) => comparison == func(Signature(data, key, encoding));
     }
 }
