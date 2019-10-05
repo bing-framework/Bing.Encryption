@@ -13,8 +13,8 @@ namespace Bing.Encryption.Tests.Hash
         public void Test_HmacMd5()
         {
             var signature = HMACMD5HashingProvider.Signature("image", "jianxuanbing");
-            Output.WriteLine(signature);
-            Assert.Equal("EC2D786F467FF87934F9C6D4D64469CE", signature);
+            Output.WriteLine(signature.HexUpperString);
+            Assert.Equal("EC2D786F467FF87934F9C6D4D64469CE", signature.HexUpperString);
         }
 
         [Fact]

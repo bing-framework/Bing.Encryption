@@ -22,7 +22,6 @@ namespace Bing.Encryption
         /// <param name="key">密钥</param>
         /// <param name="outType">输出类型，默认为<see cref="OutType.Hex"/></param>
         /// <param name="encoding">编码类型，默认为<see cref="Encoding.UTF8"/></param>
-        /// <returns></returns>
         public static string Signature(string value, string key, OutType outType = OutType.Hex,
             Encoding encoding = null) => Encrypt<HMACSHA1>(value, key, encoding, outType);
 
@@ -34,7 +33,6 @@ namespace Bing.Encryption
         /// <param name="key">密钥</param>
         /// <param name="outType">输出类型，默认为<see cref="OutType.Hex"/></param>
         /// <param name="encoding">编码类型，默认为<see cref="Encoding.UTF8"/></param>
-        /// <returns></returns>
         public static bool Verify(string comparison, string value, string key, OutType outType = OutType.Hex,
             Encoding encoding = null) => comparison == Signature(value, key, outType, encoding);
     }

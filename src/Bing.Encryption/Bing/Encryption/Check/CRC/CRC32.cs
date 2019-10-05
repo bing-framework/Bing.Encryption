@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using Bing.Encryption.Abstractions;
-using Bing.Encryption.Check.CRC;
 using Bing.Encryption.Core.Internals;
 
 // ReSharper disable once CheckNamespace

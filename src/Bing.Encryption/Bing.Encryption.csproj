@@ -5,6 +5,7 @@
     <Description>Bing.Encryption是Bing应用框架的加密操作类库。
 对各种常用的加密算法进行封装，Base64、对称密码（DES、3DES、AES）、非对称密码（RSA）等实现。</Description>
     <RootNamespace />
+    <LangVersion>7.3</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -23,7 +24,6 @@
 
   <ItemGroup>
     <Folder Include="Bing\Encryption\Algorithms\" />
-    <Folder Include="Bing\Encryption\ErrorDetecting\" />
     <Folder Include="Bing\Extensions\" />
   </ItemGroup>
 
