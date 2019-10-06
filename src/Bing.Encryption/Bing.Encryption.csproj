@@ -23,7 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Bing\Encryption\Algorithms\" />
     <Folder Include="Bing\Extensions\" />
   </ItemGroup>
 
