@@ -9,7 +9,7 @@ namespace Bing.Encryption.Algorithms
     /// <summary>
     /// Ceaser 加密算法。
     /// 更多信息请访问：https://www.codeproject.com/Articles/63432/Classical-Encryption-Techniques
-    /// 参考地址：https://github.com/Omar-Salem/Classical-Encryption-Techniques/blob/master/EncryptionAlgorithms/Concrete/AutoKey.cs
+    /// 参考地址：https://github.com/Omar-Salem/Classical-Encryption-Techniques/blob/master/EncryptionAlgorithms/Concrete/Ceaser.cs
     /// </summary>
     public sealed class Ceaser : IEncryptionAlgorithm
     {
@@ -39,8 +39,8 @@ namespace Bing.Encryption.Algorithms
         /// <summary>
         /// 处理函数
         /// </summary>
-        private static Func<int, Func<string, Func<EncryptionAlgorithmMode, string>>> ProcessFunc() => key => message =>
-            mode =>
+        private static Func<int, Func<string, Func<EncryptionAlgorithmMode, string>>> ProcessFunc() =>
+            key => message => mode =>
             {
                 var sb = new StringBuilder();
                 var alphabet = AlphabetDictionaryGenerator.Generate();
