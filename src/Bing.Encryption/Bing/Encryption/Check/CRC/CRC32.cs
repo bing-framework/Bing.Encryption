@@ -9,6 +9,7 @@ namespace Bing.Encryption
     /// <summary>
     /// CRC32
     /// </summary>
+    // ReSharper disable once InconsistentNaming
     public sealed class CRC32 : ICRC<CRC32, uint, int>
     {
         /// <summary>
@@ -19,6 +20,7 @@ namespace Bing.Encryption
         /// <summary>
         /// CRC数据表
         /// </summary>
+        // ReSharper disable once InconsistentNaming
         private uint[] CRCTable { get; } = CRCTableGenerator.GenerationCRC32Table();
 
         /// <summary>

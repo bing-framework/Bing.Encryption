@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Security.Cryptography;
 using System.Text;
+using Bing.Encryption.Abstractions;
 using Bing.Encryption.Core;
 using Bing.Encryption.Core.Internals.Extensions;
 
@@ -10,7 +11,8 @@ namespace Bing.Encryption
     /// <summary>
     /// AES 加密提供程序
     /// </summary>
-    public sealed class AESEncryptionProvider:SymmetricEncryptionBase
+    // ReSharper disable once InconsistentNaming
+    public sealed class AESEncryptionProvider : SymmetricEncryptionBase, ISymmetricEncryption
     {
         /// <summary>
         /// 初始化一个<see cref="AESEncryptionProvider"/>类型的实例
@@ -30,7 +32,7 @@ namespace Bing.Encryption
                 encoding = Encoding.UTF8;
             }
 
-            using (var provider=new AesCryptoServiceProvider(){KeySize = (int)size})
+            using (var provider = new AesCryptoServiceProvider() { KeySize = (int)size })
             {
                 return new AESKey()
                 {
@@ -72,7 +74,7 @@ namespace Bing.Encryption
             }
 
             var result = EncryptCore<AesCryptoServiceProvider>(encoding.GetBytes(value),
-                ComputeRealValueFunc()(key)(salt)(encoding)((int) keySize),
+                ComputeRealValueFunc()(key)(salt)(encoding)((int)keySize),
                 ComputeRealValueFunc()(iv)(salt)(encoding)(128));
 
             if (outType == OutType.Base64)
@@ -133,7 +135,7 @@ namespace Bing.Encryption
             }
 
             var result = DecryptCore<AesCryptoServiceProvider>(value.GetEncryptBytes(outType),
-                ComputeRealValueFunc()(key)(salt)(encoding)((int) keySize),
+                ComputeRealValueFunc()(key)(salt)(encoding)((int)keySize),
                 ComputeRealValueFunc()(iv)(salt)(encoding)(128));
 
             return encoding.GetString(result);

@@ -7,6 +7,7 @@ namespace Bing.Encryption
     /// <summary>
     /// CRC16 校验提供程序
     /// </summary>
+    // ReSharper disable once InconsistentNaming
     public class CRC16CheckingProvider : CRCCheckingBase<ushort, short>
     {
         /// <summary>

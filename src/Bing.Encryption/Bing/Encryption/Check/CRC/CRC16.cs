@@ -9,6 +9,7 @@ namespace Bing.Encryption
     /// <summary>
     /// CRC16
     /// </summary>
+    // ReSharper disable once InconsistentNaming
     public sealed class CRC16 : ICRC<CRC16, ushort, short>
     {
         /// <summary>
@@ -19,6 +20,7 @@ namespace Bing.Encryption
         /// <summary>
         /// CRC数据表
         /// </summary>
+        // ReSharper disable once InconsistentNaming
         private ushort[] CRCTable { get; } = CRCTableGenerator.GenerationCRC16Table();
 
         /// <summary>

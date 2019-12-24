@@ -8,6 +8,7 @@ namespace Bing.Encryption.Abstractions
     /// <typeparam name="TCRC">循环码类型</typeparam>
     /// <typeparam name="T1">数据类型</typeparam>
     /// <typeparam name="T2">数据类型</typeparam>
+    // ReSharper disable once InconsistentNaming
     public interface ICRC<TCRC, T1, T2> 
         where TCRC : class, ICRC<TCRC, T1, T2>, new()
         where T1 : struct

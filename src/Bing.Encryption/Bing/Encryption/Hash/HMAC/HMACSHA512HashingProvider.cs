@@ -8,6 +8,7 @@ namespace Bing.Encryption
     /// <summary>
     /// HMAC_SHA512 哈希加密提供程序
     /// </summary>
+    // ReSharper disable once InconsistentNaming
     public sealed class HMACSHA512HashingProvider : HMACHashingBase
     {
         /// <summary>
